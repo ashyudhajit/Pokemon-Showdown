@@ -5,6 +5,8 @@
 
 'use strict';
 
+const moment = require('moment');
+
 class Poll {
 	constructor(room, questionData, options) {
 		if (room.pollNumber) {
