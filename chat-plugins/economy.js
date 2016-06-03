@@ -552,6 +552,11 @@ exports.commands = {
 		if (targetUser) {
 			avatar = (isNaN(targetUser.avatar) ? "http://" + serverIp + ":" + Config.port + "/avatars/" + targetUser.avatar : "http://play.pokemonshowdown.com/sprites/trainers/" + targetUser.avatar + ".png");
 		}
+		let dev = () => {
+			if (typeof this.user === 'string' && developers.indexOf(toId(this.user)) > -1) return ' (<font color=#980000><b>Hiddencity Dev</b></font>)';
+	                if (isDev(this.user.userid)) return  ' (<font color="orange"><b>Wisp Dev</b></font>)';
+	                return '';
+		}
 		let badges = () => {
 			let badges = Db('userBadges').get(userid);
 			let css = 'border:none;background:none;padding:0;';
@@ -586,7 +591,7 @@ exports.commands = {
 				if (targetUser && targetUser.connected) lastOnline = '<font color=green>Currently Online</font>';
 				let profile = '';
 				profile += '<div style="float: left; width: 75%;"> <img src="' + avatar + '" height=80 width=80 align=left>';
-				profile += '&nbsp;<font color=#b30000><b>Name: </font><b><font color="' + Wisp.hashColor(toId(username)) + '">' + Tools.escapeHTML(username) + '</font></b><br />';
+				profile += '&nbsp;<font color=#b30000><b>Name: </font><b><font color="' + Wisp.hashColor(toId(username)) + '">' + Tools.escapeHTML(username) + '</font></b>' + dev() + '<br />';
 				profile += '&nbsp;<font color=#b30000><b>Registered: </font></b>' + regdate + '<br />';
 				profile += '&nbsp;<font color=#b30000><b>Rank: </font></b>' + userGroup + (Users.vips[userid] ? ' (<font color=#6390F0><b>VIP User</b></font>)' : '') + '<br />';
 				if (bucks) profile += '&nbsp;<font color=#b30000><b>Bucks: </font></b>' + bucks + '<br />';
