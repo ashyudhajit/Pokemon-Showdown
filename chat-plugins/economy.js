@@ -98,7 +98,7 @@ exports.commands = {
 		if (userid.length > 19) return this.sendReply("/wallet - [user] can't be longer than 19 characters.");
 
 		Economy.readMoney(userid, money => {
-			this.sendReplyBox("<font color='" + Wisp.hashColor + "'>" + Tools.escapeHTML(target) + "</font> has " + money + ((money === 1) ? " buck." : " bucks."));
+			this.sendReplyBox("<font color='" + Wisp.hashColor(target) + "'>" + Tools.escapeHTML(target) + "</font> has " + money + ((money === 1) ? " buck." : " bucks."));
 			if (this.broadcasting) room.update();
 		});
 	},
