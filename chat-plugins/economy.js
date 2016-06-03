@@ -591,9 +591,9 @@ exports.commands = {
 				if (targetUser && targetUser.connected) lastOnline = '<font color=green>Currently Online</font>';
 				let profile = '';
 				profile += '<div style="float: left; width: 75%;"> <img src="' + avatar + '" height=80 width=80 align=left>';
-				profile += '&nbsp;<font color=#b30000><b>Name: </font><b><font color="' + Wisp.hashColor(toId(username)) + '">' + Tools.escapeHTML(username) + '</font></b>' + dev() + '<br />';
+				profile += '&nbsp;<font color=#b30000><b>Name: </font><b><font color="' + Wisp.hashColor(toId(username)) + '">' + Tools.escapeHTML(username) + '</font></b><br />';
 				profile += '&nbsp;<font color=#b30000><b>Registered: </font></b>' + regdate + '<br />';
-				profile += '&nbsp;<font color=#b30000><b>Rank: </font></b>' + userGroup + (Users.vips[userid] ? ' (<font color=#6390F0><b>VIP User</b></font>)' : '') + '<br />';
+				profile += '&nbsp;<font color=#b30000><b>Rank: </font></b>' + userGroup + (Users.vips[userid] ? ' (<font color=#6390F0><b>VIP User</b></font>)' : '') + dev() + '<br />';
 				if (bucks) profile += '&nbsp;<font color=#b30000><b>Bucks: </font></b>' + bucks + '<br />';
 				if (friendCode) profile += '&nbsp;<font color=#b30000><b>Friendcode: </font></b>' + friendCode + '<br />';
 				profile += '&nbsp;<font color=#b30000><b>Last Online: </font></b>' + lastOnline;
